@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>멜론 실시간 차트</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        h1 { color: #FF0050; text-align: center; margin-bottom: 30px;} /* 멜론을 상징하는 색상 */
+        .chart-container { max-width: 600px; margin: 20px auto; border: 1px solid #ddd; border-radius: 5px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .chart-header { display: flex; font-weight: bold; background-color: #fce4ec; padding: 10px; border-bottom: 1px solid #ddd; }
+        
+        /* 컬럼 너비 설정 */
+        .chart-header .rank, .chart-item .rank { width: 15%; text-align: center; }
+        .chart-header .title, .chart-item .title { width: 45%; }
+        .chart-header .artist, .chart-item .artist { width: 40%; }
+
+        .chart-item { display: flex; padding: 10px; border-bottom: 1px solid #eee; align-items: center;}
+        .chart-item:nth-child(even) { background-color: #fcfcfc; }
+        .chart-item:last-child { border-bottom: none; }
+        
+        .chart-item .rank { font-weight: bold; color: #FF0050; }
+        .chart-item .title { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 15px; }
+        .chart-item .artist { color: #777; font-size: 13px; }
+        .go-back { display: block; text-align: center; margin-top: 30px; text-decoration: none; color: #333; padding: 10px 15px; background-color: #eee; border-radius: 5px; max-width: 150px; margin-left: auto; margin-right: auto; }
+    </style>
+</head>
+<body>
+    <h1>🎶 멜론 실시간 차트</h1>
+    
+    {% if chart_data %}
+    <div class="chart-container">
+        <div class="chart-header">
+            <span class="rank">순위</span>
+            <span class="title">곡명</span>
+            <span class="artist">아티스트</span>
+        </div>
+        {% for song in chart_data %}
+        <div class="chart-item">
+            <span class="rank">{{ song.rank }}</span>
+            <span class="title">{{ song.title }}</span>
+            <span class="artist">{{ song.artist }}</span>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <p style="text-align: center; color: red;">⚠️ 차트 데이터를 가져오는 데 실패했습니다. (크롤링이 차단되었을 수 있습니다.)</p>
+    {% endif %}
+
+    <a href="/" class="go-back">메인으로</a>
+</body>
+</html>

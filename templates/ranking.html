@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>인기 검색어 순위</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; text-align: center; }
+        h1 { color: #1DB85C; margin-bottom: 30px; }
+        .ranking-list { 
+            max-width: 500px; 
+            margin: 0 auto; 
+            list-style: none; 
+            padding: 0; 
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .ranking-item { 
+            display: flex; 
+            justify-content: space-between; 
+            padding: 10px 15px; 
+            border-bottom: 1px solid #eee;
+            align-items: center;
+        }
+        .ranking-item:last-child { border-bottom: none; }
+        
+        .rank { 
+            font-size: 18px; 
+            font-weight: bold; 
+            width: 30px; 
+            text-align: left; 
+            color: #1DB85C;
+        }
+        .keyword { 
+            flex-grow: 1; 
+            text-align: left;
+            font-size: 16px;
+        }
+        .count { 
+            font-size: 14px; 
+            color: #777;
+        }
+        .go-back {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 15px;
+            background-color: #f0f0f0;
+            text-decoration: none;
+            color: #333;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>⭐ 맛집 인기 검색어 순위 (Top 10)</h1>
+
+    <ul class="ranking-list">
+        {% for item in top_keywords %}
+<li class="ranking-item">
+    <span class="rank">{{ loop.index }}위</span> 
+    <span class="keyword">
+        <a href="/?query={{ item['keyword'] }}" style="text-decoration: none; color: #000;">
+            {{ item['keyword'] }}
+        </a>
+    </span>
+    <span class="count">{{ item['count'] }}회 검색</span>
+</li>
+{% endfor %}
+    </ul>
+
+    <a href="/" class="go-back">메인 페이지로 돌아가기</a>
+</body>
+</html>

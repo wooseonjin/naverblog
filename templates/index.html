@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>통합 서비스 메인 메뉴</title>
+    <style>
+        body { font-family: 'Arial', sans-serif; margin: 0; padding: 0; background-color: #f4f7f6; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+        .menu-container { background: white; padding: 40px; border-radius: 12px; box-shadow: 0 8px 16px rgba(0,0,0,0.1); width: 400px; text-align: center; }
+        h1 { color: #1DB85C; margin-bottom: 30px; border-bottom: 2px solid #eee; padding-bottom: 15px; }
+        .menu-list { list-style: none; padding: 0; }
+        .menu-item { margin-bottom: 15px; }
+        .menu-item a {
+            display: block;
+            padding: 15px 20px;
+            background-color: #e8f5e9; /* 네이버/플라스크 느낌의 부드러운 배경 */
+            color: #333;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: background-color 0.3s, color 0.3s;
+            border: 1px solid #c8e6c9;
+        }
+        .menu-item a:hover {
+            background-color: #1DB85C;
+            color: white;
+            box-shadow: 0 4px 8px rgba(29, 184, 92, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="menu-container">
+        <h1>🚀 통합 웹 서비스 메뉴</h1>
+        <ul class="menu-list">
+            <li class="menu-item">
+                <a href="/search_blog">🍽️ 네이버 맛집 블로그 검색</a>
+            </li>
+            <li class="menu-item">
+                <a href="/ranking">📊 맛집 검색어 순위</a>
+            </li>
+            <li class="menu-item">
+                <a href="/melon_chart">🎶 멜론 실시간 차트 보기</a>
+            </li>
+            <li class="menu-item">
+                <a href="/search_artist">🎤 멜론 DB 가수 검색</a>
+            </li>
+            <li class="menu-item">
+                <a href="/artist_rank">👑 차트 점령 가수 랭킹 (곡 수)</a>
+            </li>
+        </ul>
+        <p style="margin-top: 30px; font-size: 14px; color: #777;">AI응용빅데이터 프로그램 - 도라에몽</p>
+    </div>
+</body>
+</html>
